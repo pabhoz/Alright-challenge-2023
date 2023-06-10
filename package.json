@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "pabhoz",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "nest.js": "^1.0.8"
+  }
 }
