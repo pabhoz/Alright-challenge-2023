@@ -1,6 +1,7 @@
 # Backend con NestJS para gestión de documentos y autenticación de usuarios
 
-Este proyecto es un backend desarrollado con NestJS que permite la gestión de documentos en formato PDF y la autenticación de usuarios mediante registro e inicio de sesión. Los documentos y la información de los usuarios se almacenan en una base de datos MySQL.
+Este proyecto es un backend desarrollado con NestJS que permite la gestión de documentos en formato PDF y la autenticación de usuarios mediante registro e inicio de sesión. Los documentos y la información de los usuarios se almacenan en una base de datos MySQL. Este proyecto es creado para aspirar al puesto de desarrollador junior en la empresa Alright. Esta prueba es creada por Juan Manuel Marin.
+LinkedIn: https://www.linkedin.com/in/juanmanuelmaring/
 
 ## Requisitos previos
 
@@ -56,3 +57,30 @@ npm run start:dev
 - DELETE /documents/:id: Elimina un documento específico.
 - POST /users/register: Registra un nuevo usuario.
 - POST /users/login: Inicia sesión de un usuario existente.
+
+## Las Querys para crear las tablas y vistas de la base de datos
+
+```
+<!-- -- Creación de la tabla 'users' para almacenar la información de los usuarios -->
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL
+);
+
+<!-- -- Creación de la tabla 'documents' para almacenar la información de los documentos -->
+CREATE TABLE documents (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  file VARCHAR(255) NOT NULL,
+  user_id INT,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+<!-- -- Creación de la vista 'document_view' para obtener información de documentos y usuarios relacionados -->
+CREATE VIEW document_view AS
+SELECT d.id AS document_id, d.name AS document_name, d.file AS document_file, u.id AS user_id, u.email AS user_email
+FROM documents d
+JOIN users u ON d.user_id = u.id;
+
+```
