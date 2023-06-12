@@ -1,0 +1,18 @@
+<h2>Registro</h2>
+<form>
+  <input
+    type="email"
+    [(ngModel)]="email"
+    name="email"
+    placeholder="Correo electrónico"
+    required
+  />
+  <input
+    type="password"
+    [(ngModel)]="password"
+    name="password"
+    placeholder="Contraseña"
+    required
+  />
+  <button type="submit" (click)="register()">Registrarse</button>
+</form>

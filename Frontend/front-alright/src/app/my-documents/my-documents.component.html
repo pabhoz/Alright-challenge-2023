@@ -1,0 +1,29 @@
+<h3>Mis documentos</h3>
+
+<!-- Formulario para subir documentos -->
+<form (submit)="uploadDocument()">
+  <input type="file" (change)="onFileSelected($event)" accept=".pdf" required />
+  <input
+    type="text"
+    [(ngModel)]="documentTitle"
+    placeholder="Título del documento"
+    required
+  />
+  <button type="submit">Subir documento</button>
+</form>
+
+<!-- Lista de documentos -->
+<ul>
+  <li *ngFor="let document of documents">
+    {{ document.title }}
+    <button (click)="previewDocument(document)">Ver</button>
+    <button (click)="requestReview(document)">Solicitar revisión</button>
+    <button (click)="deleteDocument(document)">Eliminar</button>
+  </li>
+</ul>
+
+<!-- Vista previa del documento seleccionado -->
+<div *ngIf="selectedDocument">
+  <h4>{{ selectedDocument.title }}</h4>
+  <iframe [src]="selectedDocument.url" width="500" height="400"></iframe>
+</div>
