@@ -16,9 +16,9 @@
 <ul>
   <li *ngFor="let document of documents">
     {{ document.title }}
-    <button (click)="previewDocument(document)">Ver</button>
-    <button (click)="requestReview(document)">Solicitar revisión</button>
-    <button (click)="deleteDocument(document)">Eliminar</button>
+    <button (click)="previewDocument(document.id)">Ver</button>
+    <button (click)="requestReview(document.id)">Solicitar revisión</button>
+    <button (click)="deleteDocument(document.id)">Eliminar</button>
   </li>
 </ul>
 

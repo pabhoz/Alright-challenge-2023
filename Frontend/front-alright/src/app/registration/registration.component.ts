@@ -21,11 +21,11 @@ export class RegistrationComponent {
       .post<any>('http://localhost:3000/users/register', registrationData)
       .subscribe(
         (response) => {
-          // Registro exitoso, realizar acciones adicionales si es necesario
+          // Registro exitoso
           console.log('Registro exitoso:', response);
         },
         (error) => {
-          // Error durante el registro, manejar el error de acuerdo a tus necesidades
+          // Error durante el registro
           console.error('Error durante el registro:', error);
         }
       );

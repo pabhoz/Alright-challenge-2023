@@ -21,11 +21,11 @@ export class LoginComponent {
       .post<any>('http://localhost:3000/users/login', loginData)
       .subscribe(
         (response) => {
-          // Inicio de sesión exitoso, realizar acciones adicionales si es necesario
+          // Inicio de sesión exitoso
           console.log('Inicio de sesión exitoso:', response);
         },
         (error) => {
-          // Error durante el inicio de sesión, manejar el error de acuerdo a tus necesidades
+          // Error durante el inicio de sesión
           console.error('Error durante el inicio de sesión:', error);
         }
       );
